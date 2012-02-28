@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Error</title>
 </head>
-<body background = "Project/logo1.jpg">
+<body background="Project/logo1.jpg">
 	<h1>
 		Error.. Click <a href="Login.jsp">here</a> to Continue.
 	</h1>

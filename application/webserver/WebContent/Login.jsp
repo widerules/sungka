@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>LOGIN</title>
 </head>
-<body background = "Project/logo1.jpg">
+<body background="Project/logo1.jpg">
 	<form action="MainServlet" method="post">
 		<input type="hidden" name="action" value="login">
 
@@ -25,18 +25,21 @@
 				<td align="center" colspan="2"><input type="submit"
 					value="Log in"></td>
 				</form>
-				<form action="RegisterForm.jsp" method="Link">
-					<center><input type="submit" value="Click Here to Register"></center>
-
-				</form>
-
-
-
-				</td>
 			</tr>
-		</table>
-	</form>
+					<tr>
+						<td align="center" colspan="2">
+				
+						<form action="RegisterForm.jsp" method="Link">
+						<center>
+							<input type="submit" value="Click Here to Register">
+						</center>
 
+						</form>
+				
+						</td>
+					</tr>
+					
+		</table>
 
 </body>
 </html>
