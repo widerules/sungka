@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Form</title>
 </head>
-<body background = "Project/logo1.jpg">
+<body background="Project/logo1.jpg">
 	<h3 align="center">Sign up here.</h3>
 	<form action="MainServlet" method="post">
 		<input type="hidden" name="action" value="signup">
@@ -44,6 +44,8 @@
 			</tr>
 		</table>
 	</form>
-	<center><a href="Login.jsp">back to login</a></center>
+	<center>
+		<a href="Login.jsp">back to login</a>
+	</center>
 </body>
 </html>

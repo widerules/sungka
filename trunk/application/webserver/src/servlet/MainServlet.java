@@ -34,33 +34,52 @@ public class MainServlet extends HttpServlet {
 			MainJavaBeans nuser = new MainJavaBeans();
 			session.setAttribute("user", nuser);
 		}
+		
 		MainJavaBeans user = (MainJavaBeans)session.getAttribute("user");
 		
 		if(request.getParameter("action")==null){
 			response.sendRedirect("index.jsp");
 		}
+		
 		String action = request.getParameter("action");
+		
 		if(action.equalsIgnoreCase("login")){
 			if(user.Login(request.getParameter("username"), request.getParameter("password"))){
-				response.sendRedirect("user.jsp");
-			}else{
+				response.sendRedirect("home.jsp");
+				
+			}
+			
+			else{
 				response.sendRedirect("error.jsp");
 			}
-		}else if(action.equalsIgnoreCase("signup")){
+		}
+		
+		else if(action.equalsIgnoreCase("signup")){
+			
 			if(request.getParameter("password").equalsIgnoreCase(request.getParameter("password2"))){
 				
 				if(user.checkInput(request.getParameter("username"), request.getParameter("password"), request.getParameter("fname"), request.getParameter("lname"), request.getParameter("address")) )
 				response.sendRedirect("success.jsp");
+				
 				else{
 					response.sendRedirect("error1.jsp");
 				}
-			}else{
+				
+			}
+			else{
 				response.sendRedirect("error.jsp");
 			}
 			
-		}else if(action.equalsIgnoreCase("logout")){
+		}
+		
+		else if(action.equalsIgnoreCase("logout")){
 			session.invalidate();
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("menu.jsp");
+		}
+		
+		else if(action.equalsIgnoreCase("search")){
+			out.print(user.search(request.getParameter("username")));
+			
 		}
 		
 	}

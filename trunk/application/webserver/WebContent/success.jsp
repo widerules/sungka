@@ -6,9 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background = "Project/logo1.jpg">
+<body background="Project/logo1.jpg">
 	<h1>
-		Register Success! Click <a href="Login.jsp" target="content">here</a> to Login.
+		Register Success! Click <a href="Login.jsp" target="content">here</a>
+		to Login.
 	</h1>
 </body>
 </html>

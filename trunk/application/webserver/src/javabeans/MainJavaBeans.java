@@ -58,7 +58,7 @@ public class MainJavaBeans {
 	public void Connectdb(){
 		try {
 				Class.forName("org.sqlite.JDBC");
-				String url = "jdbc:sqlite:C:\\Users\\Janver\\Documents\\Janver's Files\\College\\Third Year\\Third Term\\ENTJAVA2\\Workspace\\SUNGKA\\WebContent\\sungka.db";
+				String url = "jdbc:sqlite:C:\\Users\\Janver\\Documents\\Janver's Files\\College\\Third Year\\Third Term\\ENTJAVA2\\Workspace\\sungka1\\WebContent\\sungka.db";
 				con = DriverManager.getConnection(url);
 				stmt = con.createStatement();
 						} catch (Exception e) {
@@ -147,6 +147,43 @@ public class MainJavaBeans {
 	private boolean isMissing(String param) {
 		return((param == null) || (param.trim().equals("")));
 		}
+	
+	// Search Function
+	public String search(String iusername){
+		
+		
+		Connectdb();
+		String sql = "Select * from user_details where username Like'%" + iusername + "%'";
+		String data="";
+		
+		try{
+			ResultSet set = stmt.executeQuery(sql);
+		
+		
+		data+="USERNAME \t";
+		data+="First Name \t";
+		data+="Last Name : \t";
+		data+="E-mail : \n";
+		 
+		while (set.next())
+		 {
+			 data+=set.getString("username")+"\t";
+			 data+=set.getString("fname")+"\t";
+			 data+=set.getString("lname")+"\t";
+			 data+=set.getString("email")+"\n";
+		 }
+
+			
+		
+		set.close();
+		stmt.close();
+		con.close();
+		}catch(Exception e ){
+			System.out.println("Error "+e.getMessage());
+		}
+		
+		return data;
+	}
 	
 	
 	// Verifies Login data and queries details to user.jsp

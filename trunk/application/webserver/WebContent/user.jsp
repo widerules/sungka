@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background = "Project/logo1.jpg">
+<body background="Project/logo1.jpg">
 	<h3>
 		Welcome
 		<% out.println(user.getUsername()); %>
@@ -36,9 +36,6 @@
 			<td>
 				<% out.println(user.getEmail()); %>
 			</td>
-		</tr>
-		<tr>
-			<td><a href="MainServlet?action=logout">Logout</a></td>
 		</tr>
 	</table>
 </body>
