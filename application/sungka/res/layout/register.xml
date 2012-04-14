@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menubackground" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Register New Account"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/reguser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="38dp"
+        android:hint="username" />
+
+    <EditText
+        android:id="@+id/regpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reguser"
+        android:layout_alignRight="@+id/reguser"
+        android:layout_below="@+id/reguser"
+        android:hint="password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/regpassv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/regpass"
+        android:layout_alignRight="@+id/regpass"
+        android:layout_below="@+id/regpass"
+        android:hint="re-enter password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/regfname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/regpassv"
+        android:layout_alignRight="@+id/regpassv"
+        android:layout_below="@+id/regpassv"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/reglname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/regfname"
+        android:layout_alignRight="@+id/regfname"
+        android:layout_below="@+id/regfname"
+        android:hint="Last Name" />
+
+    <EditText
+        android:id="@+id/regemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reglname"
+        android:layout_alignRight="@+id/reglname"
+        android:layout_below="@+id/reglname"
+        android:hint="email"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/btnreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/regemail"
+        android:layout_below="@+id/regemail"
+        android:layout_marginTop="16dp"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/btnregback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnreg"
+        android:layout_alignBottom="@+id/btnreg"
+        android:layout_alignLeft="@+id/regemail"
+        android:text="Back" />
+
+</RelativeLayout>

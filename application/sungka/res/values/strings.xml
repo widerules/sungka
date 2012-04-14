@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Welcome!</string>
+    <string name="app_name">Sungka</string>
+    <string name="playturn">
+        When its your turn, you start by picking up any pile on your side of the board. Once you pick it up, you start dropping one shell in each hole in a clockwise fashion. This includes your home, but NOT your opponentâ€™s home. Once you place your last shell one of three things happens based on where it lands: If it lands in a normal hole and it has shells inside, then pick them all up and continue. If it lands in a normal hole and there are no shells, then your turn is done. If this happens on your side (you land on your side), and there are shells in your opponents side in the same column, you get to take all of those shells from your opponents side and place them in your home. If it lands in your home, start again from any hole on your side of your choosing. If you have no more shells you can play, the round is done. The other player automatically claims all the shells on their side and will start the next round. Common house rule: When making a choice on which hole to start with, as soon as you touch the shells/hole you must start with that hole.
+	</string>
+    
+    <string name="playfull">
+You keep playing rounds until one entire side of a board has been burned. 
+At that point the game is over and the person with a remaining side wins.
+    </string>
+
+</resources>
