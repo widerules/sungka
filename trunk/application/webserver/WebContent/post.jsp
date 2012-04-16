@@ -43,7 +43,7 @@ try {
 	
 	
 	Class.forName("org.sqlite.JDBC");
-	String url = "jdbc:sqlite:C:\\Users\\Toshiba\\workspace\\arizala\\SUNGKA2\\WebContent\\sungka.db";
+	String url = javabeans.MainJavaBeans.url;
 	con = DriverManager.getConnection(url);
 	stmt = con.createStatement();
 			} catch (Exception e) {

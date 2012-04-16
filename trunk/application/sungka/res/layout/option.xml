@@ -19,24 +19,15 @@
             android:layout_marginBottom="14dp"
             android:layout_marginRight="19dp"
             android:text="Back" />
-
-        <Button
-            android:id="@+id/btnlogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/btnback"
-            android:layout_alignBottom="@+id/btnback"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="58dp"
-            android:text="Logout" />
-
+
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/board"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/btnback"
-            android:layout_toRightOf="@+id/btnlogout" />
+            android:layout_marginLeft="80dp"
+            android:layout_toLeftOf="@+id/btnback" />
 
         <TextView
             android:id="@+id/textView1"

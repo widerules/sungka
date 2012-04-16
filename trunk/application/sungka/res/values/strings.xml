@@ -11,5 +11,12 @@
 You keep playing rounds until one entire side of a board has been burned. 
 At that point the game is over and the person with a remaining side wins.
     </string>
+    
+    <string-array name="board_arrays">
+        <item>Blue</item>
+        <item>Black</item>
+        <item>Green</item>
+        <item>Yellow</item>
+    </string-array>
 
 </resources>
