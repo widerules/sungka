@@ -5,15 +5,18 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainMenu extends Activity 
 implements OnClickListener{
 	
+	TextView loguser;
 	Button newgame, opt, tut, aboutus, exit;
 	
 	boolean ctr;
@@ -27,8 +30,20 @@ implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
         
+        SharedPreferences pref = getSharedPreferences("MyPrefs", 0);
+		String username = pref.getString("login", null);
+        
         if (Build.VERSION.SDK_INT >= ANDROID_BUILD_GINGERBREAD) {
             setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        }
+        
+    	loguser = (TextView) findViewById(R.id.loguser);
+        
+        if (username == null){
+        	loguser.setText("Anonymous");
+        }
+        else{
+            loguser.setText(username);
         }
         
         newgame = (Button) findViewById(R.id.newgame);

@@ -1,9 +1,8 @@
 package com.sungka.janverski;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -23,6 +22,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.content.Intent;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -111,7 +111,8 @@ public class Register extends Activity implements OnClickListener {
 		
 		if (v == btnreg){
 			
-			String url = "";
+			
+			String resp = null;
 			
 			String username = reguser.getEditableText().toString();
 			String password = regpass.getEditableText().toString();
@@ -120,12 +121,10 @@ public class Register extends Activity implements OnClickListener {
 			String lastname = reglname.getEditableText().toString();
 			String email = regemail.getEditableText().toString();
 			
-			url="http://10.0.2.2:8080/SUNGKA2/MainServlet";
-			
 			
 			DefaultHttpClient hc=new DefaultHttpClient();  
 			ResponseHandler <String> res=new BasicResponseHandler();  
-			HttpPost postMethod=new HttpPost("http://10.0.2.2:8080/SUNGKA2/MainServlet");  
+			HttpPost postMethod=new HttpPost("http://"+Login.ip+":"+Login.port+"/SUNGKA2/MainServlet");  
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(7);    
 			nameValuePairs.add(new BasicNameValuePair("action", "signupandroid"));    
 			nameValuePairs.add(new BasicNameValuePair("username", username));
@@ -142,12 +141,37 @@ public class Register extends Activity implements OnClickListener {
 			}    
 			try {
 				String response=hc.execute(postMethod,res);
-				Toast.makeText(this, "Successfully Registered!", Toast.LENGTH_LONG).show();
+				//Toast.makeText(this, "Successfully Registered!", Toast.LENGTH_LONG).show();
 				
-				Intent intent = new Intent (this, Login.class);
-				startActivity(intent);
+				try {
+					resp = CustomHttpClient.executeHttpGet("http://"+Login.ip+":"+Login.port+"/SUNGKA2/MainServlet");
+					String respo=response.toString();
+					
+					if(respo.equals("1")){
+						
+						Toast.makeText(this, "Successfully Registered!", Toast.LENGTH_LONG).show();
+						
+						Intent intent = new Intent (this, Login.class);
+						startActivity(intent);
+						
+						Register.this.finish();
+					}
+					
+					else if(respo.equals("0")){
+						
+						Toast.makeText(this, "Registration Failed! Server Error", Toast.LENGTH_LONG).show();
+					}
+					
+					else if(respo.equals("2")){
+						
+						Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_LONG).show();
+					}
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
-				Register.this.finish();
 				
 			} catch (ClientProtocolException e) {
 				// TODO Auto-generated catch block

@@ -7,6 +7,12 @@ import java.sql.Statement;
 
 
 public class MainJavaBeans {
+	
+	/** VERY IMPORTANT! Change the path of the sungka.db from its properties with the format example below **/
+	
+	public static String url = "jdbc:sqlite:C:\\Users\\Janver\\workspace\\Android\\SUNGKA2\\WebContent\\sungka.db";
+	
+	
 	private String username;
 	private String password;
 	private String fname;
@@ -61,7 +67,7 @@ public class MainJavaBeans {
 	public void Connectdb(){
 		try {
 				Class.forName("org.sqlite.JDBC");
-				String url = "jdbc:sqlite:C:\\Users\\Janver\\workspace\\Android\\SUNGKA2\\WebContent\\sungka.db";
+				
 				con = DriverManager.getConnection(url);
 				stmt = con.createStatement();
 						} catch (Exception e) {
@@ -69,6 +75,7 @@ public class MainJavaBeans {
 			}	
 	}
 	
+	// User Details
 	public void setUser(String iusername){
 		setUsername(iusername);
 		Connectdb();
@@ -96,7 +103,7 @@ public class MainJavaBeans {
 	public void createUser(String iusername,String ipassword, String ifname,String ilname,String iemail){
 		Connectdb();
 		
-		String sql = "insert into user_details (username, password, fname, lname, email) values('"+iusername+"','"+ipassword+"','"+ifname+"','"+ilname+"','"+iemail+"')";
+		String sql = "insert into user_details (username, password, fname, lname, email, win, loss) values('"+iusername+"','"+ipassword+"','"+ifname+"','"+ilname+"','"+iemail+"',0,0)";
 		try{
 			stmt.executeUpdate(sql);
 		stmt.close();
@@ -106,6 +113,7 @@ public class MainJavaBeans {
 		}
 	}
 	
+	// Add Forum Topic
 	public void createTopic(String itopic){
 		Connectdb();
 		
@@ -119,6 +127,7 @@ public class MainJavaBeans {
 		}
 	}
 	
+	// Add Forum Post
 	public void createPost(String icontent, int id){
 		Connectdb();
 		
@@ -243,5 +252,30 @@ public class MainJavaBeans {
 		
 		
 		return result;
+	}
+	
+	// Update the score from the Android Application
+	public void updateScore(String iusername, String iwin, String iloss){
+		Connectdb();
+		
+		int intwin = Integer.parseInt(iwin);
+		int intloss = Integer.parseInt(iloss);
+		
+		if (iusername==""){
+			System.out.println("No Username!");
+		}
+		else{
+			
+			String sql = "UPDATE user_details set win=win+"+intwin+", loss=loss+"+intloss+" WHERE username like'%" + iusername + "%'";
+			try{
+				stmt.executeUpdate(sql);
+			stmt.close();
+			con.close();
+			}catch(Exception e ){
+				System.out.println("Error "+e.getMessage());
+			}
+			
+		}
+
 	}
 }
